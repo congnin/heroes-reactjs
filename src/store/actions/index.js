@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosInstance from '../../services/axios-service';
 
 import {
     FETCH_HEROES_INIT,
@@ -7,28 +8,21 @@ import {
 } from './types';
 
 export const fetchHeroes = (name) => {
-    const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-    const url = `https://superheroapi.com/api/3566277356723893/search/${name}`;
+    const url = `/search/${name}`;
 
     return dispatch => {
         dispatch(fetchHeroesInit());
 
-        axios.get(PROXY_URL + url, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-                'Content-Type': 'application/json'
-            }
-        })
+        axiosInstance.get(url)
             .then(res => res.data.results)
             .then(heroes => dispatch(fetchHeroesSuccess(heroes)))
     }
 }
 
-const fetchHeroesSuccess = (rentals) => {
+const fetchHeroesSuccess = (heroes) => {
     return {
         type: FETCH_HEROES_SUCCESS,
-        rentals
+        heroes
     }
 }
 

@@ -20,7 +20,7 @@ export const heroReducer = (state = INITIAL_STATE.heroes, action) => {
         case FETCH_HEROES_INIT:
             return { ...state, data: [], errors: [] };
         case FETCH_HEROES_SUCCESS:
-            return { ...state, data: action.rentals };
+            return { ...state, data: action.heroes };
         case FETCH_HEROES_FAIL:
             return Object.assign({}, state, { errors: action.errors, data: [] });
         default:
