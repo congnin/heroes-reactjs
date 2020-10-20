@@ -1,5 +1,9 @@
 @import 'variables.scss';
 @import 'header/header.scss';
+@import 'form/form.scss';
+
+@import 'layout/hero-listing.scss';
+@import 'layout/hero-detail.scss';
 
 .clickable {
     &:hover {

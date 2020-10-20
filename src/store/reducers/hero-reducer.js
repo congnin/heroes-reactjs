@@ -1,29 +1,47 @@
 import {
-    FETCH_HEROES_INIT,
-    FETCH_HEROES_SUCCESS,
-    FETCH_HEROES_FAIL
-} from '../actions/types';
+    FETCH_HERO_BY_ID_INIT,
+    FETCH_HERO_BY_ID_SUCCESS,
+    FETCH_HERO_BY_ID_FAIL
+} from '../actions/actionTypes';
 
-const INITIAL_STATE = {
-    heroes: {
-        data: [],
-        errors: []
-    },
-    hero: {
-        data: {},
-        errors: []
-    }
+import { updateObject } from '../../shared/utility';
+
+const initialState = {
+    data: null,
+    error: false,
+    loading: false
 }
 
-export const heroReducer = (state = INITIAL_STATE.heroes, action) => {
+const fetchHeroStart = ( state, action ) => {
+    return updateObject( state, { error: null, loading: true } );
+};
+
+const fetchHeroSuccess = (state, action) => {
+    return updateObject( state, { 
+        data: action.hero,
+        error: null,
+        loading: false
+     } );
+};
+
+const fetchHeroFail = (state, action) => {
+    return updateObject( state, {
+        error: action.error,
+        loading: false
+    });
+};
+
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_HEROES_INIT:
-            return { ...state, data: [], errors: [] };
-        case FETCH_HEROES_SUCCESS:
-            return { ...state, data: action.heroes };
-        case FETCH_HEROES_FAIL:
-            return Object.assign({}, state, { errors: action.errors, data: [] });
+        case FETCH_HERO_BY_ID_INIT:
+            return fetchHeroStart(state, action);
+        case FETCH_HERO_BY_ID_SUCCESS:
+            return fetchHeroSuccess(state, action);
+        case FETCH_HERO_BY_ID_FAIL:
+            return fetchHeroFail(state, action);
         default:
             return state;
     }
 }
+
+export default reducer;

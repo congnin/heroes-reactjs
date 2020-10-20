@@ -1,16 +1,18 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
-import { heroReducer } from './hero-reducer';
+import heroesReducer from './heroes-reducer';
+import heroReducer  from './hero-reducer';
 
 export const init = () => {
-    const reducer = combineReducers({
-        heroes: heroReducer
+    const rootReducer = combineReducers({
+        heroes: heroesReducer,
+        hero: heroReducer
     });
 
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;                    
 
-    const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+    const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
     return store;
 }

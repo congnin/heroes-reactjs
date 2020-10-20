@@ -31,6 +31,95 @@
     .navbar .dropdown-menu .dropdown-item:active {
       background-color: #61dafb; }
 
+.hero-form {
+  color: #484848; }
+  .hero-form h1 {
+    font-weight: 700;
+    margin-bottom: 30px; }
+  .hero-form .image-container {
+    position: relative; }
+    .hero-form .image-container img {
+      width: 100%;
+      border-radius: 5px; }
+  .hero-form label {
+    font-size: 12px; }
+  .hero-form .form-text {
+    font-size: 13px; }
+  .hero-form .catchphrase {
+    text-align: center;
+    font-size: 42px;
+    position: absolute;
+    color: #f1f1f1;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    letter-spacing: 1px; }
+  .hero-form .btn-form {
+    margin-top: 15px; }
+
+.hero-res-errors {
+  margin: 10px 0; }
+  .hero-res-errors p {
+    margin-bottom: 5px; }
+
+#heroListing .title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px; }
+
+#heroListing .hero-detail-link:hover {
+  text-decoration: none; }
+
+#heroListing .hero-card {
+  border: none;
+  margin-bottom: 20px; }
+  #heroListing .hero-card .card-block {
+    padding-top: 8px; }
+    #heroListing .hero-card .card-block .card-subtitle {
+      margin: 0;
+      font-weight: 500;
+      font-size: 12px;
+      text-transform: uppercase; }
+    #heroListing .hero-card .card-block .card-title {
+      font-size: 19px;
+      margin: 3px 0;
+      color: #484848; }
+    #heroListing .hero-card .card-block .card-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: #7e7e7e;
+      margin-bottom: 0; }
+
+#heroDetails .upper-section {
+  margin-bottom: 30px; }
+  #heroDetails .upper-section img {
+    width: 100%; }
+
+#heroDetails .details-section {
+  margin-top: 50px;
+  color: #484848; }
+  #heroDetails .details-section .hero-full-name {
+    color: #61dafb;
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0; }
+  #heroDetails .details-section .hero-place-of-birth img {
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto; }
+  #heroDetails .details-section .hero-place-of-birth span {
+    display: block;
+    font-size: 13px;
+    font-weight: 300; }
+  #heroDetails .details-section .hero-more-info {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 26px; }
+    #heroDetails .details-section .hero-more-info span {
+      width: 300px; }
+
 .clickable:hover {
   cursor: pointer; }
 

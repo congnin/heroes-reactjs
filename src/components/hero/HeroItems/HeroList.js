@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { HeroItems } from './HeroItems';
 import { connect } from 'react-redux';
+import * as actions from '../../../store/actions/index';
 
-import * as actions from '../../../store/actions';
 
 class HeroList extends Component {
 
     componentDidMount() {
-        this.props.dispatch(actions.fetchHeroes('x'));
+        this.props.onFetchHeroes();
     }
 
     render() {
@@ -20,10 +20,17 @@ class HeroList extends Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        heroes: state.heroes.data
+        heroes: state.heroes.data,
+        loading: state.heroes.loading
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchHeroes: () => dispatch(actions.fetchHeroes('x'))
     }
 }
 
-export default connect(mapStateToProps)(HeroList)
+export default connect(mapStateToProps, mapDispatchToProps)(HeroList);

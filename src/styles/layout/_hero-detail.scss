@@ -1,0 +1,49 @@
+#heroDetails {
+    .upper-section {
+      img {
+        width: 100%;
+      }
+  
+      margin-bottom: 30px;
+    }
+  
+    .details-section {
+      margin-top: 50px;
+      color: $main-text-gray-color;
+      .hero {
+        &-full-name {
+          color: $main-color;
+          font-size: 30px;
+          font-weight: 300;
+          text-transform: uppercase;
+          margin: 0;
+        }
+  
+        &-place-of-birth {
+          
+          img {
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+          }
+  
+          span {
+            display: block;
+            font-size: 13px;
+            font-weight: 300;
+          }
+        }
+  
+        &-more-info {
+          margin-bottom: 20px;
+          font-weight: 300;
+          font-size: 26px;
+  
+          span {
+            width: 300px;
+          }
+        }
+      }
+  }
+}
