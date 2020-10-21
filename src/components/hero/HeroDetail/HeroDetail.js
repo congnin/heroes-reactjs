@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../../store/actions/index';
-import { HeroDetailInfo } from './HeroDetailInfo';
+import HeroDetailInfo  from './HeroDetailInfo';
+import Spinner from "../../Spinner/Spinner";
+import ImgLoader from '../../shared/ImgLoader';
 
 class HeroDetail extends Component {
 
@@ -21,7 +23,7 @@ class HeroDetail extends Component {
                     <div className='upper-section'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <img src={hero.image.url} alt='' />
+                                <ImgLoader src={hero.image.url} alt='' />
                             </div>
 
                             <div className='col-md-6 details-section'>
@@ -33,7 +35,7 @@ class HeroDetail extends Component {
             )
         } else {
             return (
-                <h1> Loading... </h1>
+                <Spinner />
             )
         }
     }

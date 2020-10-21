@@ -120,6 +120,9 @@
     #heroDetails .details-section .hero-more-info span {
       width: 300px; }
 
+.body-content {
+  margin-top: 70px; }
+
 .clickable:hover {
   cursor: pointer; }
 

@@ -5,6 +5,10 @@
 @import 'layout/hero-listing.scss';
 @import 'layout/hero-detail.scss';
 
+.body-content {
+  margin-top: 70px;
+}
+
 .clickable {
     &:hover {
       cursor: pointer;

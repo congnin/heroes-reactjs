@@ -19,18 +19,17 @@ const fetchHeroesSuccess = (state, action) => {
 
 const fetchHeroesFail = (state, action) => {
     return updateObject(state, {
-        data: [],
         loading: false
     });
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_HEROES_INIT:
+        case actionTypes.FETCH_HEROES_LIKED_INIT:
             return fetchHeroesStart(state, action);
-        case actionTypes.FETCH_HEROES_SUCCESS:
+        case actionTypes.FETCH_HEROES_LIKED_SUCCESS:
             return fetchHeroesSuccess(state, action);
-        case actionTypes.FETCH_HEROES_FAIL:
+        case actionTypes.FETCH_HEROES_LIKED_FAIL:
             return fetchHeroesFail(state, action);
         default:
             return state;

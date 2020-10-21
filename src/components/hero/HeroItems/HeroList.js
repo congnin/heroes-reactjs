@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HeroItems } from './HeroItems';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
+import Spinner from '../../Spinner/Spinner';
 
 
 class HeroList extends Component {
@@ -11,10 +12,14 @@ class HeroList extends Component {
     }
 
     render() {
+        let listing = <Spinner />
+        if (!this.props.loading) {
+            listing = <HeroItems heroes={this.props.heroes} />;
+        }
         return (
             <section id="heroListing">
                 <h1 className="page-title">All Heroes Around the World</h1>
-                <HeroItems heroes={this.props.heroes} />
+                {listing}
             </section>
         )
     }
@@ -29,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchHeroes: () => dispatch(actions.fetchHeroes('x'))
+        onFetchHeroes: () => dispatch(actions.fetchHeroes('man'))
     }
 }
 

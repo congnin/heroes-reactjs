@@ -8,15 +8,18 @@ class SearchInput extends Component {
         this.searchInput = React.createRef();
     }
 
-    handleKeyPress(event) {
+    handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             this.handleSearch();
         }
     }
 
-    handleSearch() {
+    handleSearch = () => {
         const { history } = this.props;
         const name = this.searchInput.current.value;
+
+        name ? history.push(`/heroes/search/${name}`) : history.push('/heroes');
+        this.searchInput.value = '';
     }
 
     render() {
@@ -28,7 +31,7 @@ class SearchInput extends Component {
                     type='search'
                     placeholder='Try "Wolverine"'
                     aria-label='Search' />
-                <button onClick={() => this.handleSearch()}
+                <button onClick={this.handleSearch}
                     className='btn btn-outline-success my-2 my-sm-0 btn-hero-search'
                     type='submit'>Search</button>
             </div>

@@ -7,7 +7,7 @@ import logo from '../../logo.svg';
 class Header extends Component {
     render() {
         return (
-            <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
+            <nav className='navbar fixed-top navbar-expand-sm navbar-dark bg-dark'>
                 <div className='container'>
                     <Link className='navbar-brand' to='/heroes'>
                         <img src={logo} alt="" /> SuperHero
@@ -17,7 +17,8 @@ class Header extends Component {
                     </button>
                     <div className='collapse navbar-collapse' id='navbarCollapse'>
                         <div className='navbar-nav ml-auto'>
-                            <Link className='nav-item nav-link' to='/heroes'>Heroes <span className='sr-only'>(current)</span></Link>
+                            <Link className='nav-item nav-link' to='/heroes'>Home <span className='sr-only'>(current)</span></Link>
+                            <Link className='nav-item nav-link' to='/heroes/store/liked'>Like</Link>
                             <Link className='nav-item nav-link' to='/build-hero'>Build Hero</Link>
                         </div>
                     </div>
