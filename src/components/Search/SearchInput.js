@@ -10,6 +10,7 @@ class SearchInput extends Component {
 
     handleKeyPress = (event) => {
         if (event.key === 'Enter') {
+            event.preventDefault();
             this.handleSearch();
         }
     }
@@ -19,7 +20,7 @@ class SearchInput extends Component {
         const name = this.searchInput.current.value;
 
         name ? history.push(`/heroes/search/${name}`) : history.push('/heroes');
-        this.searchInput.value = '';
+        this.searchInput.current.value = '';
     }
 
     render() {
@@ -29,7 +30,7 @@ class SearchInput extends Component {
                     ref={this.searchInput}
                     className='form-control mr-sm-2 hero-search'
                     type='search'
-                    placeholder='Try "Wolverine"'
+                    placeholder='Pleae input name'
                     aria-label='Search' />
                 <button onClick={this.handleSearch}
                     className='btn btn-outline-success my-2 my-sm-0 btn-hero-search'
